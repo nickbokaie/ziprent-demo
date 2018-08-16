@@ -1,0 +1,45 @@
+---
+layout: new-site
+Title: Available Properties | Ziprent
+Description: Find your perfect property
+---
+
+<div class="property-container">
+    <div>
+        <h1>Browse Properties</h1>
+    </div>
+
+    <!-- Property Grid Container -->
+    <div class="property-grid">
+        
+        <%= partial(:'partials/property-card', :locals => {
+            :thumbnail => '/images/get-started/sf-1.jpg', 
+            :price => '$2,000', 
+            :address => '324 California St',
+            :city => 'San Francisco',
+            :sqft => '1,000 sqft.', 
+            :bedrooms => '2 bedrooms',
+            :bathrooms => '1.5 bathrooms'}) 
+        %>
+
+        <%= partial(:'partials/property-card', :locals => {
+            :thumbnail => '/images/get-started/sf-2.jpg', 
+            :price => '$2,500', 
+            :address => '324 Fulton St.',
+            :city => 'San Francisco',
+            :sqft => '1,400 sqft.', 
+            :bedrooms => '2 bedrooms',
+            :bathrooms => '1 bathrooms'}) 
+        %>
+
+        <%= partial(:'partials/property-card', :locals => {
+            :thumbnail => '/images/get-started/sf-3.jpg', 
+            :price => '$1,000', 
+            :address => '324 California St',
+            :city => 'San Francisco',
+            :sqft => '1,200 sqft.', 
+            :bedrooms => '3 bedrooms',
+            :bathrooms => '2 bathrooms'}) 
+        %>
+    </div>
+</div>

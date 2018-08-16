@@ -1,0 +1,33 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- Social Sharing Meta Tags -->
+    <meta property="og:title" content="Ziprent">
+    <meta property="og:description" content="Automated tenant placement service">
+    <meta property="og:image" content="images/ziprent-thumbnail-new.png">
+    <meta property="og:url" content="ziprent.com">
+    <meta name="twitter:card" content="images/ziprent-thumbnail-new.png">
+    <!-- Use the title from a page's frontmatter if it has one -->
+    <title><%= current_page.data.title || "Ziprent" %></title>
+    <%= stylesheet_link_tag "normalize" %>
+    <%= stylesheet_link_tag "new-site" %>
+    <script src="/javascripts/scrollreveal.min.js"></script>
+    <%= javascript_include_tag "site" %>
+    <link rel="icon" href="/images/favicon.png" type="image/x-icon" />
+    <link rel="shortcut icon" href="/images/favicon.png" type="image/x-icon" />
+    <script>
+      window.sr = ScrollReveal();
+    </script>
+    <script src="https://use.fontawesome.com/cda17efed8.js"></script>
+  </head>
+  <body>
+    <%= yield %>
+    <script>
+    sr.reveal('.img-reveal', { duration: 1500 });
+  </script>
+  </body>
+</html>
