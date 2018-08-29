@@ -1,20 +1,23 @@
 ---
 title: Ziprent Site Portal
-description: Here is the portal to see the various ziprent sites
+description: Landing page to view all the creative assets
+layout: portal
 ---
 
-<div>
+<img class="logo" src="images/logos/logo.png">
+<h3>Here is a dumping ground for all things ziprent creative</h3>
+
+<div class="lp-list">
+  <h3>Landing Page list</h3>
   <ul>
     <li><a href="old/old-home">Old Site</a></li>
     <li><a href="new/home">New Site</a></li>
-    <ul>
-        <li><%= link_to("San Francisco", "/landing-pages/sf-one") %></li>
-        <li><%= link_to("Berkeley", "/landing-pages/berkeley") %></li>
-        <li><%= link_to("East Bay", "/landing-pages/east-bay") %></li>
-        <li><%= link_to("North Bay", "/landing-pages/north-bay") %></li>
-        <li><%= link_to("Oakland", "/landing-pages/oakland") %></li>
-        <li><%= link_to("Santa Rosa", "/landing-pages/santa-rosa") %></li>
-        <li><%= link_to("South Bay", "/landing-pages/south-bay") %></li>
-    </ul>
+    <li><%= link_to("San Francisco", "/landing-pages/sf-one") %></li>
+    <li><%= link_to("Berkeley", "/landing-pages/berkeley") %></li>
+    <li><%= link_to("East Bay", "/landing-pages/east-bay") %></li>
+    <li><%= link_to("North Bay", "/landing-pages/north-bay") %></li>
+    <li><%= link_to("Oakland", "/landing-pages/oakland") %></li>
+    <li><%= link_to("Santa Rosa", "/landing-pages/santa-rosa") %></li>
+    <li><%= link_to("South Bay", "/landing-pages/south-bay") %></li>
   </ul>
 </div>
