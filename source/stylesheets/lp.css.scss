@@ -17,7 +17,7 @@ html {
 }
 
 h1, h2, h3, h4, h5, h6 {
-  font-family: 'Catamaran', sans-serif;
+  font-family: 'Bitter', sans-serif;
   color: $grey;
 }
 
@@ -27,7 +27,7 @@ p {
 
 
 body {
-  background-color: white;
+  background-color:#f9f9f9;
   color: #333;
   font-family: 'Raleway', sans-serif;
   line-height: 1.42857143;
@@ -481,12 +481,106 @@ h1 {
   }
 }
 
+// Bottom CTA
+
+.bottom-lp-cta{
+  h2{margin-top:0;}
+  padding: 10%;
+  text-align: center;
+  position: relative;
+
+  .flower-left{
+    @include for-size(phone-only){
+      display:none;
+    }
+    position: absolute;
+    left: 15%;
+    top: -4%;
+    transform: rotate(180deg);
+    width: 200px;
+    z-index: -10;
+  }
+
+  .flower-right{
+    @include for-size(phone-only){
+      display: none;
+    }
+    position: absolute;
+    right: 15%;
+    bottom: -4%;
+    width: 200px;
+    z-index: -10;
+  }
+}
+
+.input-row{
+  @include for-size(phone-only){
+    display: block;
+  }
+
+  @include for-size(tablet-portrait-up) {
+    display: block;
+  }
+
+  @include for-size(tablet-landscape-up){
+    display: inline-block;
+  }
+
+  input {
+    font-size: 16px;
+    padding: 20px;
+    border: 1px solid #ebebeb;
+    border-radius: 4px;
+    box-sizing: border-box;
+
+    @include for-size(phone-only) {
+      width: 300px;
+      margin-bottom: 10px;
+    }
+    @include for-size(tablet-portrait-up) {
+      width: 300px;
+      margin-bottom: 10px;
+    }
+    @include for-size(tablet-landscape-up) {
+    width: 325px;
+    }
+  }
+}
 // Footer Styles
 footer {
   background: $darkblue;
   padding: 2% 10%;
   color: white;
   text-align: center;
+
+  .footer-row{
+    display: grid;
+    @include for-size(tablet-portrait-up){
+      grid-template-rows: 1fr 1fr;
+    }
+    @include for-size(tablet-landscape-up){
+      grid-template-columns: 1fr 1fr;
+      grid-template-rows: none;
+    }
+    .footer-logo{
+      justify-self: start;
+      align-self: center;
+    }
+
+    .footer-text{
+      @include for-size(phone-only){
+        justify-self: start;
+      }
+      @include for-size(tablet-portrait-up){
+        justify-self: start;
+        align-self: start;
+      }
+      @include for-size(tablet-landscape-up){
+        justify-self: end;
+      }
+    }
+
+  }
   
   img{
     max-width: 150px;
@@ -503,22 +597,6 @@ footer {
   p {
     color: white;
     font-size: 16px;
-  }
-}
-
-.icons {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  margin: 0 auto;
-  width: 75px; 
-  .fa {
-    color:white;
-  }
-  a{
-    padding-right: 15px; 
-    &:hover {
-      opacity: .9;
-    }
+    margin-top: 10px;
   }
 }
