@@ -958,6 +958,7 @@ a {
   }
 }
 
+
 // Property Showing Page
 .property-img-wrapper{
   width: 100%;
@@ -972,70 +973,162 @@ a {
   }
 }
 
-.property-info-container{
-  margin: 5% 8%;
-  display: grid;
-  grid-template-columns: 3fr 1.5fr;
-  grid-gap: 75px; 
+// New Grid Layout: Fix responsive issues
 
-  .section{
-    &:not(:first-child){
-      border-top: 1px solid #eee;
-      margin-top: 0;
-      margin-bottom: 5%;
-    }
-  }
-
-  .address-container{
+.property-grid-container{
+  @include for-size(phone-only){
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-rows: repeat(3, auto);
+    grid-template-columns: none;
+    margin: 4%;
+  }
 
-    .address-title{
-      h2{
-        margin-top: 0px;
+  @include for-size(tablet-portrait-up){
+    display: grid;
+    grid-template-rows: repeat(3, auto);
+    grid-template-columns: none;
+    margin: 4%;
+  }
+
+  @include for-size(tablet-landscape-up){
+    display:grid;
+    grid-template-columns: 3fr 1.5fr;
+    grid-template-rows:  150px 1fr auto;
+    grid-column-gap: 80px;
+    margin: 3% 8%;
+  }
+
+  /* Address Title */
+  .grid-address{
+    grid-row-start: 1;
+    grid-row-end: 2;
+
+    .address-container{
+      @include for-size(phone-only){
+        display: grid;
+        grid-template-rows: repeat(2, 1fr);
+        grid-template-columns: none;
       }
-    }
+
+      display: grid;
+      grid-template-columns: 1fr 1fr;
     
-    .address-price{
-      h2{margin-top: 15px;}
-      justify-self: end;
-      align-self: start;
+      .address-title{
+        h1{
+          font-size: 32px;
+          font-weight: 100;
+          margin: 10px 0px 5px;
+        }
+        h2{
+          font-size: 24px;
+          font-weight: 100;
+          margin-top: 0px;
+        }
+      }
+      
+      .address-price{
+        h1{
+          margin-top: 10px;
+          font-size: 32px;
+          font-weight: 100;
+        }
+
+        @include for-size(phone-only){
+          justify-self: start;
+        }
+        justify-self: end;
+        align-self: start;
+      }
     }
   }
 
-  .property-form{
-    .property-form-card{
-      h3{
-        margin-top: 10px; 
-      }
+  /* Form Section */
+  .grid-form{
+    @include for-size(phone-only){
+      poistion: relative;
+    }
+
+    @include for-size(tablet-portrait-up) {
+      position: relative;
+    }
+
+    @include for-size(tablet-landscape-up){
+      position: sticky;
+      top: 80px;
+    }
+
+    .property-card{
+      h3{margin-top: 10px;}
       box-shadow: 0px 2px 3px #eee;
       border: 1px solid transparent;
       background: white;
       padding: 5px 20px 10px;
-      position: sticky;
-      top: 80px;
+
+      form > input {
+        display: block;
+        margin: 20px 0px;
+        padding: 20px;
+        width: 100%;
+        max-width: 635px;
+        box-sizing: border-box;
+        font-size: 16px;
+        border: 1px solid #ebebeb;
+        border-radius: 4px;
+      }
 
     }
   }
 
-  .property-details{
-    display: grid;
-    grid-template-rows: 1fr 1fr;
-    grid-template-columns: 1fr 1fr 1fr 1fr;
-    grid-gap: 25px;
+  /* Property details & overview */
 
-    label{
-      font-size: 14px;
-      text-transform: uppercase;
-      font-weight: 700;
-      color: #696969;
+  .grid-details{
+    .section{
+      
+      &:first-child{
+        margin-bottom: 5%;
+      }
+
+      &:not(:first-child){
+        border-top: 1px solid #eee;
+        margin-top: 0;
+        margin-bottom: 5%;
+      }
     }
 
-    p{
-      margin-top: 0px;
+    .property-details{
+      @include for-size(phone-only){
+        display: grid;
+        grid-template-rows: repeat(4, 1fr);
+        grid-template-columns: repeat(2, 1fr);
+        grid-gap: 20px;
+      }
+  
+      @include for-size(tablet-portrait-up){
+        display: grid;
+        grid-template-rows: repeat(4, 1fr);
+        grid-template-columns: repeat(2, 1fr); 
+      }
+  
+      @include for-size(tablet-landscape-up){
+        grid-template-rows: repeat(2, 1fr);
+        grid-template-columns: repeat(4, 1fr);
+        grid-gap: 25px;
+      }
+  
+      label{
+        font-size: 14px;
+        text-transform: uppercase;
+        font-weight: 700;
+        color: #696969;
+      }
+  
+      p{
+        margin-top: 0px;
+      }
     }
   }
 }
+
 
 
 

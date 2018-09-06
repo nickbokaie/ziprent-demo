@@ -3,12 +3,22 @@ sr.reveal('.img-reveal', { duration: 1500 });
 
 $(document).ready(function(){
     $('.property-img-wrapper').slick({
-      dots: true,
+      dots: false,
       infinite: true,
       speed: 300,
       slidesToShow: 2,
       slidesToScroll: 2,
       autoplay: true,
+      responsive: [
+        {
+          breakpoint: 900,
+          settings: {
+            slidesToShow: 1,
+            slidesToScroll: 1,
+            infinite: true,
+          }
+        }
+      ]
     });
   });
 
