@@ -22,3 +22,16 @@ $(document).ready(function(){
     });
   });
 
+  $(document).ready(function(){
+    $('.testimonial-content').slick({
+      dots: false,
+      infinite: true,
+      speed: 600,
+      autoplaySpeed: 8000,
+      slidesToShow: 1,
+      slidesToScroll: 1,
+      adaptiveHeight: true,
+      autoplay: true,
+    });
+  });
+

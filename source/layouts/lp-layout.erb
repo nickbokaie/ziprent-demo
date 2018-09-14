@@ -16,13 +16,18 @@
     <%= stylesheet_link_tag "normalize" %>
     <%= stylesheet_link_tag "lp" %>
     <script src="/javascripts/scrollreveal.min.js"></script>
-    <%= javascript_include_tag "site" %>
+
     <!-- Favicon -->
     <link rel="icon" href="/images/favicon.png" type="image/x-icon" />
     <link rel="shortcut icon" href="/images/favicon.png" type="image/x-icon" />
-    <script>
-      window.sr = ScrollReveal();
-    </script>
+
+    <!-- Slick Slider Stuff -->
+    <!-- Slick Slider Stuff-->
+    <link rel="stylesheet" type="text/css" href="/stylesheets/slick.css"/>
+    <link rel="stylesheet" type="text/css" href="/stylesheets/slick-theme.css"/>
+
+  
+    <script>window.sr = ScrollReveal();</script>
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
   </head>
@@ -37,5 +42,10 @@
     <script>
     sr.reveal('.img-reveal', { duration: 1500 });
   </script>
+
+  <script type="text/javascript" src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+  <script type="text/javascript" src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+  <script type="text/javascript" src="/javascripts/slick.min.js"></script>
+  <%= javascript_include_tag "site" %>
   </body>
 </html>
