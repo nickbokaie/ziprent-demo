@@ -12,7 +12,7 @@ Description: Find your perfect property
     <!-- Property Grid Container -->
     <div class="property-grid">
         
-        <%= partial(:'partials/property-card', :locals => {
+        <%= partial(:'partials/new/property-card', :locals => {
             :thumbnail => '/images/get-started/sf-1.jpg', 
             :price => '$2,000', 
             :address => '324 California St',
@@ -22,7 +22,7 @@ Description: Find your perfect property
             :bathrooms => '1.5 bathrooms'}) 
         %>
 
-        <%= partial(:'partials/property-card', :locals => {
+        <%= partial(:'partials/new/property-card', :locals => {
             :thumbnail => '/images/get-started/sf-2.jpg', 
             :price => '$2,500', 
             :address => '324 Fulton St.',
@@ -32,7 +32,7 @@ Description: Find your perfect property
             :bathrooms => '1 bathrooms'}) 
         %>
 
-        <%= partial(:'partials/property-card', :locals => {
+        <%= partial(:'partials/new/property-card', :locals => {
             :thumbnail => '/images/get-started/sf-3.jpg', 
             :price => '$1,000', 
             :address => '324 California St',
