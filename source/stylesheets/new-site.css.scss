@@ -1050,7 +1050,7 @@ a {
 // New Footer Styles
 
 .new-footer{
-  background-color: #487BB3;
+  background-color: $darkblude;
   a{
     color: white; 
     &:hover {
@@ -1102,14 +1102,14 @@ a {
     grid-template-columns: repeat(5, 1fr);
     grid-template-rows: auto;
     grid-row-gap: 20px;
-    grid-column-gap: 20px;
+    grid-column-gap: 10px;
     margin: 0 auto;
     color: white;
     padding: 1rem 3rem;
   }
 
   @include for-size(tablet-landscape-up){
-    padding: 25px 12rem;
+    padding: 25px 10rem;
   }
   li {
     font-size: 14px; 
@@ -1125,4 +1125,18 @@ a {
     margin: 0;
     font-size: 14px;
   }
+}
+
+.footer_location_grid{
+  display: grid;
+  grid-template-rows: repeat(3,1fr);
+  grid-template-columns: repeat(2,1fr);
+  grid-column-gap: 8px;
+}
+
+.footer_copyright{
+  font-size: 10px; 
+  text-align: center; 
+  color: white; 
+  padding-bottom: 10px;
 }
