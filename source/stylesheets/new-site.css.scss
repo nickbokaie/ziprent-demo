@@ -975,16 +975,20 @@ a {
     }
 
     .property-card{
-      h3{margin-top: 10px;}
+      h3{
+        margin-top: 10px;
+        margin-bottom: 0px;
+      }
+      p{font-size: 16px;}
       box-shadow: 0px 2px 3px #eee;
       border: 1px solid transparent;
       background: white;
       padding: 5px 20px 10px;
 
-      form > input {
+      input {
         display: block;
-        margin: 20px 0px;
-        padding: 20px;
+        margin: 10px 0px;
+        padding: 15px;
         width: 100%;
         max-width: 635px;
         box-sizing: border-box;
@@ -993,6 +997,97 @@ a {
         border-radius: 4px;
       }
 
+      .form-row{
+        @include for-size(phone-only){
+          display: block;
+        }
+
+        @include for-size(tablet-portrait-up) {
+        display: flex;
+        flex-direction: row;
+        :first-child{
+            margin-right: 5px;
+          }
+        }
+      }
+    }
+  }
+
+  //Property Detail Buttons
+  .property-primary{
+    width: 100%;
+    color: white;
+    text-align: center;
+    padding: 12px;
+    background-color: $green;
+    border: 1px solid $green;
+    border-radius: 4px;
+
+    &:hover{
+      cursor: pointer;
+      opacity: 0.9;
+    }
+  }
+
+  .property-secondary{
+    width: 100%;
+    color: inherit;
+    text-align: center;
+    padding: 12px;
+    background-color: transparent;
+    border: 1px solid #dcdcdc;
+    border-radius: 4px;
+
+    &:hover{
+      cursor: pointer;
+      border:1px solid #9a9a9a;
+    }
+  }
+
+  .property-checkbox{
+    display: inline-flex;
+    flex-direction: row;
+    margin-bottom: 10px;
+
+    input[type="checkbox"]{
+      margin-right: 5px;
+      width: auto;
+    }
+
+    label{
+      font-size: 12px;
+      margin-top: 8px;
+    }
+  }
+
+  .form-button{
+    
+    p{
+      font-weight: 700;
+      text-transform: uppercase;
+      text-align: center;
+      overflow: hidden;
+    }
+
+    p:before,
+    p:after {
+      background-color: $grey;
+      content: "";
+      display: inline-block;
+      height: 1px;
+      position: relative;
+      vertical-align: middle;
+      width: 50%;
+    }
+
+    p:before {
+      right: 0.5em;
+      margin-left: -50%;
+    }
+    
+    p:after {
+      left: 0.5em;
+      margin-right: -50%;
     }
   }
 
