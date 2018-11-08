@@ -1,48 +1,26 @@
-@import url(https://fonts.googleapis.com/css?family=Bitter:400,500,700|Montserrat:200,300,400,500,600,700);
+@import url(https://fonts.googleapis.com/css?family=Bitter:400,500,700|Monserrat:200,300,400,500,700);
 
+// Main Colors
+$blue: #7FBAFA;
+$darkblude: #2A4059;
+$grey: #4a4a4a;
+$green: #0dab76;
+
+// Bulma Components
 @import "bulma/utilities/_all.scss";
 @import "bulma/components/_navbar.scss";
 @import "bulma/components/_button.scss";
 
-// Dynamic Font
-$baseline: 1.2rem;
+// Utilities
+@import "utilities/dynamic-font.css.scss";
+@import "utilities/breakpoints.css.scss";
 
-$minScreen: 20rem;
-$maxScreen: 50rem;
-$minFont: .8rem;
-$maxFont: 1.4rem;
+// Property Page Specific CSS 
+// needs to have mixins loaded before it
 
-$h1: 2rem;
-$h2: 1.5rem;
-$h3: 1.25rem;
-$h4: 1rem;
-$h5: .875rem;
+@import "property/property.css.scss";
 
-
-@mixin fluid-type($properties, $min-vw, $max-vw, $min-value, $max-value) {
-	& {
-		@each $property in $properties {
-			#{$property}: $min-value;
-		}
-
-		@media screen and (min-width: $min-vw) {
-			@each $property in $properties {
-				#{$property}: calc(#{$min-value} + #{strip-unit($max-value - $min-value)} * ((100vw - #{$min-vw}) / #{strip-unit($max-vw - $min-vw)}));
-			}
-		}
-
-		@media screen and (min-width: $max-vw) {
-			@each $property in $properties {
-				#{$property}: $max-value;
-			}
-		}
-	}
-}
-
-@function strip-unit($value) {
-	@return $value / ($value * 0 + 1);
-}
-
+// GLOBAL STYLES
 *{
 	box-sizing: border-box;
 }
@@ -55,83 +33,25 @@ html {
 	@include fluid-type(font-size, $minScreen, $maxScreen, $minFont, $maxFont);
 }
 
-.img-reveal{
-  visibility: hidden;
-}
-
 body {
   line-height: $baseline;
   font-size: 18px;
   background-color: #f9f9f9;
   color: #3e3e3e;
-  font-family: 'Montserrat', sans-serif;
+  font-family: 'Monserrat', sans-serif;
   font-weight: 300;
   line-height: 1.6;  
   margin: 0;
   padding: 0;
 }
-  
-
-h1,h2,h3,h4,h5{
-	font-weight: 700;
-  margin-bottom: $baseline;
-  font-family: 'Bitter', sans-serif;
-  color: #333;
-}
-
-h1 {
-	font-size: $h1;
-	line-height: $h1;
-	margin-top: calc((#{$baseline} - #{$h1}) + #{$baseline});
-}
-
-h2 {
-	font-size: $h2;
-	line-height: $h2;
-	margin-top: calc((#{$baseline} - #{$h2}) + #{$baseline}*2);
-}
-
-h3 {
-	font-size: $h3;
-	line-height: $h3;
-	margin-top: calc((#{$baseline} - #{$h3}) + #{$baseline}*2);
-}
-
-h4 {
-	font-size: $h4;
-	line-height: $h4;
-	margin-top: calc((#{$baseline} - #{$h4}) + #{$baseline}*2);
-}
-
-h5 {
-	font-size: $h5;
-	line-height: $h5;
-	margin-top: calc((#{$baseline} - #{$h5}) + #{$baseline}*2);
-}
-// End Dynamic Font
-
-// General Styles
-/*
-html {
-  font-size: 16px;
-  line-height: 1.5rem;
-}
-*/
-
-/*
-body {
-  background-color: white;
-  color: #333;
-  font-family: 'Raleway', sans-serif;
-  line-height: 1.6;
-  margin: 0;
-  padding: 0;
-}
-*/
 
 hr{
   border-style: solid;
   color: #f0f0f0;
+}
+
+.img-reveal{
+  visibility: hidden;
 }
 
 // Main Colors
@@ -139,24 +59,11 @@ $blue: #7FBAFA;
 $darkblude: #2A4059;
 $grey: #4a4a4a;
 $green: #0dab76;
+// END GLOBAL STYLES
 
-//Breakpoint mixins
-@mixin for-size($size) {
-  @if $size == phone-only {
-    @media (max-width: 599px) { @content; }
-  } @else if $size == tablet-portrait-up {
-    @media (min-width: 600px) { @content; }
-  } @else if $size == tablet-landscape-up {
-    @media (min-width: 900px) { @content; }
-  } @else if $size == desktop-up {
-    @media (min-width: 1200px) { @content; }
-  } @else if $size == big-desktop-up {
-    @media (min-width: 1800px) { @content; }
-  }
-}
+
 
 //Button Styles
-
 .btn-small{
   -webkit-appearance: none;
   -moz-appearance: none;
@@ -224,6 +131,19 @@ $green: #0dab76;
   }
 }
 
+.btn-secondary-solid {
+  background-color: #477bb4;
+  color: white;
+  fill: #477bb4;
+  box-shadow: inset 0 0 0 1px #477bb4;
+  cursor: auto;
+
+  a{
+    text-decoration: none;
+    color: inherit;
+  }
+}
+
 // Form Button Style
 input[type=submit] {
   padding: 10px 15px;
@@ -245,6 +165,9 @@ a {
   color: #000;
   text-decoration: none;
 }
+
+// END BUTTON STYLES
+
 
 /* Nav Styles */
 
@@ -828,319 +751,88 @@ a {
   }
 }
 
-.property-container{
-  padding: 10%;
-}
-
-.property-grid{
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-}
-.card{
-  max-width: 300px;
-  background-color: white;
-  box-shadow: 2px 2px 6px 1px rgba(0,0,0,0.17);
-
-  .card-thumbnail{
-    position: relative;
-    
-    img{
-      width: 100%;
-      max-height: 200px;
-    }
-
-    .thumbnail-price{
-      padding: 10px 20px;
-      background: rgba(0,0,0,.8);
-      color: white;
-      font-size: 22px;
-      font-weight: bold;
-      position: absolute;
-      bottom: 10%;
-      left: 7%;
-
-      p{
-        margin: 0;
-      }
-    }
-  }
-
-  .card-info{
-    padding: 3%;
-
-    h3{
-      margin-top: 0;
-      margin-bottom:0;
-    }
-  }
-}
-
-
-// Property Showing Page
-.property-img-wrapper{
-  width: 100%;
-  overflow:hidden;
-
-  div{
-    margin-right: 2px;
-  }
-
-  img{
-    width: 100%;
-  }
-}
-
-// New Grid Layout: Fix responsive issues
-
-.property-grid-container{
+.pricing-card-container {
   @include for-size(phone-only){
     display: grid;
-    grid-template-rows: repeat(3, auto);
-    grid-template-columns: none;
-    margin: 4%;
+    grid-template-columns: auto;
+    grid-template-rows: auto;
+    grid-row-gap: 40px;
+    margin: 0 auto;
+    padding: 0 2rem;
   }
 
   @include for-size(tablet-portrait-up){
     display: grid;
-    grid-template-rows: repeat(3, auto);
-    grid-template-columns: none;
-    margin: 4%;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: auto;
+    grid-column-gap: 40px;
+    margin: 0 auto;
+    padding: 0 3rem 3rem;
   }
 
   @include for-size(tablet-landscape-up){
-    display:grid;
-    grid-template-columns: 3fr 1.5fr;
-    grid-template-rows:  150px 1fr auto;
-    grid-column-gap: 80px;
-    margin: 3% 8%;
-  }
-
-  /* Address Title */
-  .grid-address{
-    grid-row-start: 1;
-    grid-row-end: 2;
-
-    .address-container{
-      @include for-size(phone-only){
-        display: grid;
-        grid-template-rows: repeat(2, 1fr);
-        grid-template-columns: none;
-      }
-
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-    
-      .address-title{
-        h1{
-          font-size: 32px;
-          font-weight: 100;
-          margin: 10px 0px 5px;
-        }
-        h2{
-          font-size: 24px;
-          font-weight: 100;
-          margin-top: 0px;
-        }
-      }
-      
-      .address-price{
-        h1{
-          margin-top: 10px;
-          font-size: 32px;
-          font-weight: 100;
-        }
-
-        @include for-size(phone-only){
-          justify-self: start;
-        }
-        justify-self: end;
-        align-self: start;
-      }
-    }
-  }
-
-  /* Form Section */
-  .grid-form{
-    @include for-size(phone-only){
-      poistion: relative;
-    }
-
-    @include for-size(tablet-portrait-up) {
-      position: relative;
-    }
-
-    @include for-size(tablet-landscape-up){
-      position: sticky;
-      top: 80px;
-    }
-
-    .property-card{
-      h3{
-        margin-top: 10px;
-        margin-bottom: 0px;
-      }
-      p{font-size: 16px;}
-      box-shadow: 0px 2px 3px #eee;
-      border: 1px solid transparent;
-      background: white;
-      padding: 5px 20px 10px;
-
-      input {
-        display: block;
-        margin: 10px 0px;
-        padding: 15px;
-        width: 100%;
-        max-width: 635px;
-        box-sizing: border-box;
-        font-size: 16px;
-        border: 1px solid #ebebeb;
-        border-radius: 4px;
-      }
-
-      .form-row{
-        @include for-size(phone-only){
-          display: block;
-        }
-
-        @include for-size(tablet-portrait-up) {
-        display: flex;
-        flex-direction: row;
-        :first-child{
-            margin-right: 5px;
-          }
-        }
-      }
-    }
-  }
-
-  //Property Detail Buttons
-  .property-primary{
-    width: 100%;
-    color: white;
-    text-align: center;
-    padding: 12px;
-    background-color: $green;
-    border: 1px solid $green;
-    border-radius: 4px;
-
-    &:hover{
-      cursor: pointer;
-      opacity: 0.9;
-    }
-  }
-
-  .property-secondary{
-    width: 100%;
-    color: inherit;
-    text-align: center;
-    padding: 12px;
-    background-color: transparent;
-    border: 1px solid #dcdcdc;
-    border-radius: 4px;
-
-    &:hover{
-      cursor: pointer;
-      border:1px solid #9a9a9a;
-    }
-  }
-
-  .property-checkbox{
-    display: inline-flex;
-    flex-direction: row;
-    margin-bottom: 10px;
-
-    input[type="checkbox"]{
-      margin-right: 5px;
-      width: auto;
-    }
-
-    label{
-      font-size: 12px;
-      margin-top: 8px;
-    }
-  }
-
-  .form-button{
-    
-    p{
-      font-weight: 700;
-      text-transform: uppercase;
-      text-align: center;
-      overflow: hidden;
-    }
-
-    p:before,
-    p:after {
-      background-color: $grey;
-      content: "";
-      display: inline-block;
-      height: 1px;
-      position: relative;
-      vertical-align: middle;
-      width: 50%;
-    }
-
-    p:before {
-      right: 0.5em;
-      margin-left: -50%;
-    }
-    
-    p:after {
-      left: 0.5em;
-      margin-right: -50%;
-    }
-  }
-
-  /* Property details & overview */
-
-  .grid-details{
-    .section{
-      
-      &:first-child{
-        margin-bottom: 5%;
-      }
-
-      &:not(:first-child){
-        border-top: 1px solid #eee;
-        margin-top: 0;
-        margin-bottom: 5%;
-      }
-    }
-
-    .property-details{
-      @include for-size(phone-only){
-        display: grid;
-        grid-template-rows: repeat(4, 1fr);
-        grid-template-columns: repeat(2, 1fr);
-        grid-gap: 20px;
-      }
-  
-      @include for-size(tablet-portrait-up){
-        display: grid;
-        grid-template-rows: repeat(4, 1fr);
-        grid-template-columns: repeat(2, 1fr); 
-      }
-  
-      @include for-size(tablet-landscape-up){
-        grid-template-rows: repeat(2, 1fr);
-        grid-template-columns: repeat(4, 1fr);
-        grid-gap: 25px;
-      }
-  
-      label{
-        font-size: 14px;
-        text-transform: uppercase;
-        font-weight: 700;
-        color: #696969;
-      }
-  
-      p{
-        margin-top: 0px;
-      }
-    }
+    padding: 0 10rem 3rem;
   }
 }
 
+.pricing-card {
+  background-color: white;
+  padding: 2rem;
+  border-radius: 4px;
+  box-shadow: 4px 4px 5px 0px rgba(0,0,0,0.2);
+
+  hr{
+    color: rgba($color: #979797, $alpha: .30);
+    margin: 30px 0px 20px 0px;
+  }
+
+  h2{margin: 0;}
+  h3{margin-top: 25px;}
+
+  ul{
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  ul li{
+    padding: 10px 0px;
+    font-weight: 500;
+    font-size: 20px;
+  }
+}
+
+.pricing-flower-left {
+  @include for-size(phone-only){
+    position: absolute;
+    top: 43%;
+    left: 1%;
+    z-index: -1;
+  }
+
+  @include for-size (tablet-portrait-up){
+    position: absolute;
+    top: 24%;
+    left: 6%;
+    z-index: -1;
+  }
+}
+
+.pricing-flower-right {
+  @include for-size(phone-only){
+    position: absolute;
+    top: 80%;
+    left: 1%;
+    z-index: -1;
+  }
+
+  @include for-size(tablet-portrait-up){
+    position: absolute;
+    top: 80%;
+    right: 3%;
+    z-index: -1;
+  }
+}
 
 // New Footer Styles
 
@@ -1223,10 +915,22 @@ a {
 }
 
 .footer_location_grid{
-  display: grid;
-  grid-template-rows: repeat(3,1fr);
-  grid-template-columns: repeat(2,1fr);
-  grid-column-gap: 8px;
+  @include for-size(phone-only){
+    display: grid;
+    grid-template-rows: auto;
+  }
+
+  @include for-size(tablet-portrait-up){
+    display: grid;
+    grid-template-rows: auto;
+    grid-template-columns: auto;
+  }
+
+  @include for-size(tablet-landscape-up){
+    grid-template-rows: repeat(3,1fr);
+    grid-template-columns: repeat(2,1fr);
+    grid-column-gap: 8px;
+  }
 }
 
 .footer_copyright{

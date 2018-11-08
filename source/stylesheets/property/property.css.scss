@@ -1,0 +1,314 @@
+.property-container{
+    padding: 10%;
+  }
+  
+  .property-grid{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+  }
+  .card{
+    max-width: 300px;
+    background-color: white;
+    box-shadow: 2px 2px 6px 1px rgba(0,0,0,0.17);
+  
+    .card-thumbnail{
+      position: relative;
+      
+      img{
+        width: 100%;
+        max-height: 200px;
+      }
+  
+      .thumbnail-price{
+        padding: 10px 20px;
+        background: rgba(0,0,0,.8);
+        color: white;
+        font-size: 22px;
+        font-weight: bold;
+        position: absolute;
+        bottom: 10%;
+        left: 7%;
+  
+        p{
+          margin: 0;
+        }
+      }
+    }
+  
+    .card-info{
+      padding: 3%;
+  
+      h3{
+        margin-top: 0;
+        margin-bottom:0;
+      }
+    }
+  }
+  
+  
+  // Property Showing Page
+  .property-img-wrapper{
+    width: 100%;
+    overflow:hidden;
+  
+    div{
+      margin-right: 2px;
+    }
+  
+    img{
+      width: 100%;
+    }
+  }
+  
+  // New Grid Layout: Fix responsive issues
+  
+  .property-grid-container{
+    @include for-size(phone-only){
+      display: grid;
+      grid-template-rows: repeat(3, auto);
+      grid-template-columns: none;
+      margin: 4%;
+    }
+  
+    @include for-size(tablet-portrait-up){
+      display: grid;
+      grid-template-rows: repeat(3, auto);
+      grid-template-columns: none;
+      margin: 4%;
+    }
+  
+    @include for-size(tablet-landscape-up){
+      display:grid;
+      grid-template-columns: 3fr 1.5fr;
+      grid-template-rows:  150px 1fr auto;
+      grid-column-gap: 80px;
+      margin: 3% 8%;
+    }
+  
+    /* Address Title */
+    .grid-address{
+      grid-row-start: 1;
+      grid-row-end: 2;
+  
+      .address-container{
+        @include for-size(phone-only){
+          display: grid;
+          grid-template-rows: repeat(2, 1fr);
+          grid-template-columns: none;
+        }
+  
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+      
+        .address-title{
+          h1{
+            font-size: 32px;
+            font-weight: 100;
+            margin: 10px 0px 5px;
+          }
+          h2{
+            font-size: 24px;
+            font-weight: 100;
+            margin-top: 0px;
+          }
+        }
+        
+        .address-price{
+          h1{
+            margin-top: 10px;
+            font-size: 32px;
+            font-weight: 100;
+          }
+  
+          @include for-size(phone-only){
+            justify-self: start;
+          }
+          justify-self: end;
+          align-self: start;
+        }
+      }
+    }
+  
+    /* Form Section */
+    .grid-form{
+      @include for-size(phone-only){
+        poistion: relative;
+      }
+  
+      @include for-size(tablet-portrait-up) {
+        position: relative;
+      }
+  
+      @include for-size(tablet-landscape-up){
+        position: sticky;
+        top: 80px;
+      }
+  
+      .property-card{
+        h3{
+          margin-top: 10px;
+          margin-bottom: 0px;
+        }
+        p{font-size: 16px;}
+        box-shadow: 0px 2px 3px #eee;
+        border: 1px solid transparent;
+        background: white;
+        padding: 5px 20px 10px;
+  
+        input {
+          display: block;
+          margin: 10px 0px;
+          padding: 15px;
+          width: 100%;
+          max-width: 635px;
+          box-sizing: border-box;
+          font-size: 16px;
+          border: 1px solid #ebebeb;
+          border-radius: 4px;
+        }
+  
+        .form-row{
+          @include for-size(phone-only){
+            display: block;
+          }
+  
+          @include for-size(tablet-portrait-up) {
+          display: flex;
+          flex-direction: row;
+          :first-child{
+              margin-right: 5px;
+            }
+          }
+        }
+      }
+    }
+  
+    //Property Detail Buttons
+    .property-primary{
+      width: 100%;
+      color: white;
+      text-align: center;
+      padding: 12px;
+      background-color: $green;
+      border: 1px solid $green;
+      border-radius: 4px;
+  
+      &:hover{
+        cursor: pointer;
+        opacity: 0.9;
+      }
+    }
+  
+    .property-secondary{
+      width: 100%;
+      color: inherit;
+      text-align: center;
+      padding: 12px;
+      background-color: transparent;
+      border: 1px solid #dcdcdc;
+      border-radius: 4px;
+  
+      &:hover{
+        cursor: pointer;
+        border:1px solid #9a9a9a;
+      }
+    }
+  
+    .property-checkbox{
+      display: inline-flex;
+      flex-direction: row;
+      margin-bottom: 10px;
+  
+      input[type="checkbox"]{
+        margin-right: 5px;
+        width: auto;
+      }
+  
+      label{
+        font-size: 12px;
+        margin-top: 8px;
+      }
+    }
+  
+    .form-button{
+      
+      p{
+        font-weight: 700;
+        text-transform: uppercase;
+        text-align: center;
+        overflow: hidden;
+      }
+  
+      p:before,
+      p:after {
+        background-color: $grey;
+        content: "";
+        display: inline-block;
+        height: 1px;
+        position: relative;
+        vertical-align: middle;
+        width: 50%;
+      }
+  
+      p:before {
+        right: 0.5em;
+        margin-left: -50%;
+      }
+      
+      p:after {
+        left: 0.5em;
+        margin-right: -50%;
+      }
+    }
+  
+    /* Property details & overview */
+  
+    .grid-details{
+      .section{
+        
+        &:first-child{
+          margin-bottom: 5%;
+        }
+  
+        &:not(:first-child){
+          border-top: 1px solid #eee;
+          margin-top: 0;
+          margin-bottom: 5%;
+        }
+      }
+  
+      .property-details{
+        @include for-size(phone-only){
+          display: grid;
+          grid-template-rows: repeat(4, 1fr);
+          grid-template-columns: repeat(2, 1fr);
+          grid-gap: 20px;
+        }
+    
+        @include for-size(tablet-portrait-up){
+          display: grid;
+          grid-template-rows: repeat(4, 1fr);
+          grid-template-columns: repeat(2, 1fr); 
+        }
+    
+        @include for-size(tablet-landscape-up){
+          grid-template-rows: repeat(2, 1fr);
+          grid-template-columns: repeat(4, 1fr);
+          grid-gap: 25px;
+        }
+    
+        label{
+          font-size: 14px;
+          text-transform: uppercase;
+          font-weight: 700;
+          color: #696969;
+        }
+    
+        p{
+          margin-top: 0px;
+        }
+      }
+    }
+  }
+  
+  
