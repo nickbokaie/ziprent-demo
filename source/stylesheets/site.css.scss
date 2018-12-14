@@ -1,4 +1,4 @@
-@import url(https://fonts.googleapis.com/css?family=Bitter:400,500,700|Monserrat:200,300,400,500,700);
+@import "fonts/sf-pro.css";
 
 // Main Colors
 $blue: #7FBAFA;
@@ -37,9 +37,9 @@ body {
   line-height: $baseline;
   font-size: 18px;
   background-color: #f9f9f9;
-  color: #3e3e3e;
-  font-family: 'Monserrat', sans-serif;
-  font-weight: 300;
+  color: $grey;
+  font-family: 'SF Pro', sans-serif;
+  font-weight: 400;
   line-height: 1.6;  
   margin: 0;
   padding: 0;
@@ -48,18 +48,25 @@ body {
 hr{
   border-style: solid;
   color: #f0f0f0;
+  border-width: 0.5px;
 }
 
 .img-reveal{
   visibility: hidden;
 }
 
-// Main Colors
-$blue: #7FBAFA;
-$darkblue: #2A4059;
-$grey: #4a4a4a;
-$green: #0dab76;
-// END GLOBAL STYLES
+// Headroom CSS
+
+.headroom {
+  will-change: transform;
+  transition: transform 250ms linear;
+}
+.headroom--pinned {
+  transform: translateY(0%);
+}
+.headroom--unpinned {
+  transform: translateY(-100%);
+}
 
 
 
